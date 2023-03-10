@@ -9,7 +9,7 @@ Use `jax.value_and_grad` to find the gradients of the network input $\mathbf{x}$
 Start with a `jax.random.uniform` network input of shape `[1, 28, 28, 1]` and 
 iteratively optimize it.
 
-# Task 2 Integrated Gradients (Optional):
+# Task 2: Integrated Gradients (Optional):
 
 
 Reuse your MNIST digit recognition code. Implement IG as discussed in the lecture. Recall the equation
