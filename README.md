@@ -22,8 +22,4 @@ Finally, m denotes the number of summation steps from the black baseline image t
 
 Follow the todos in `./src/mnist_integrated`.
 
-Solution:
-
-![cnn ig MNIST 0](./figures/IG_MNIST_0.png)
-
 

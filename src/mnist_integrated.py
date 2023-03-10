@@ -123,42 +123,24 @@ def get_acc(img_data, label_data):
 def integrate_gradients(net, weights, test_images, output_digit, steps_m=300):
     g_list = []
     for test_image_x in tqdm(test_images, desc="Integrating Gradients"):
+        pass
         # TODO: create a list for the gradients.
-        # step_g_list = []
+
         # TODO: create a black reference image using jnp.zeros_like .
-        # black_image_x_prime = jnp.zeros_like(test_image_x)
+
         # TODO: Loop over the integration steps.
-        # for current_step_k in range(steps_m):
+
         #  # TODO: compute the input to F from equation 5 in the slides.
-        #  current_point = black_image_x_prime + (current_step_k/steps_m) * (test_image_x - black_image_x_prime)
+
         #  # TODO: define a forward pass for jax.grad
-        #  def eval_fun(point):
-        #    logits = net.apply(weights, point)
-        #    return logits[0, output_digit]
+
         #  # TODO: use jax.grad to find the gradient with repsect to the input image.
-        #  grad_fun = jax.grad(eval_fun)
-        #  grads = grad_fun(jnp.expand_dims(current_point, 0))
+
         #  # TODO: append the gradient to yout list
-        #  step_g_list.append(grads)
+
         # TODO: Return the sum of the of the list elements.
-        # g_sum = jnp.sum(jnp.concatenate(step_g_list), 0)
 
-        test_image_x = jnp.expand_dims(jnp.expand_dims(test_image_x, -1), 0)
-        black_image_x_prime = jnp.zeros_like(test_image_x)
-        scales = jnp.expand_dims(jnp.arange(steps_m) / steps_m, (1, 2, 3))
-        points = black_image_x_prime + scales * (test_image_x - black_image_x_prime)
-
-        def eval_fun(point):
-            logits = net.apply(weights, point)
-            return jnp.sum(logits[:, output_digit], 0)
-
-        grad_fun = jax.grad(eval_fun)
-        grads = grad_fun(points)
-        g_sum = jnp.sum(grads, 0)
-        integrated_g = (test_image_x - black_image_x_prime) * g_sum * (1.0 / steps_m)
-        g_list.append(integrated_g)
-    return jnp.mean(jnp.concatenate(g_list, 0), 0)
-
+    return None
 
 if __name__ == "__main__":
 
