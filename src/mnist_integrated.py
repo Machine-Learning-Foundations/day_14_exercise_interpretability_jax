@@ -11,7 +11,6 @@ import optax
 from flax import linen as nn
 from tqdm import tqdm
 
-
 from input_opt import CNN
 
 
@@ -54,6 +53,7 @@ def get_mnist_train_data() -> Tuple[np.ndarray, np.ndarray]:
     #    return cp.array(img_data_train), cp.array(lbl_data_train)
     return img_data_train, lbl_data_train
 
+
 @jax.jit
 def normalize(
     data: np.ndarray, mean: Optional[float] = None, std: Optional[float] = None
@@ -75,7 +75,6 @@ def normalize(
     if std is None:
         std = np.std(data)
     return (data - mean) / std, mean, std
-
 
 
 @jax.jit
@@ -142,10 +141,10 @@ def integrate_gradients(net, weights, test_images, output_digit, steps_m=300):
 
     return None
 
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Train Networks on MNIST.")
-    parser.add_argument("--lr", type=float, default=0.0025 , help="Learning Rate")
+    parser.add_argument("--lr", type=float, default=0.0025, help="Learning Rate")
     args = parser.parse_args()
     print(args)
 
@@ -198,9 +197,7 @@ if __name__ == "__main__":
 
         # train_acc = get_acc(img_data_train, lbl_data_train)
         val_acc = get_acc(img_data_val, lbl_data_val)
-        print(
-            "Validation accuracy: {:3.3f}".format(val_acc)
-        )
+        print("Validation accuracy: {:3.3f}".format(val_acc))
 
     print("Training done. Testing...")
     img_data_test, lbl_data_test = get_mnist_test_data()

@@ -15,7 +15,6 @@ def lint(session):
     """Check code conventions."""
     session.install("flake8==4.0.1")
     session.install(
-        "flake8-colors",
         "flake8-black",
         "flake8-docstrings",
         "flake8-bugbear",
@@ -24,8 +23,7 @@ def lint(session):
         "pydocstyle",
         "darglint",
     )
-    session.install("flake8-bandit==2.1.2", "bandit==1.7.2")
-    session.run("flake8", "src/train_brain_decoder.py", "noxfile.py")
+    session.run("flake8", "src", "noxfile.py")
 
 
 @nox.session(name="typing")
@@ -42,7 +40,7 @@ def mypy(session):
         "--no-warn-return-any",
         "--implicit-reexport",
         "--allow-untyped-calls",
-        "src/train_brain_decoder.py",
+        "src",
     )
 
 

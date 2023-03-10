@@ -1,9 +1,8 @@
 import pickle
+
 import jax
 import jax.numpy as jnp
 import matplotlib.pyplot as plt
-
-
 from flax import linen as nn
 
 
@@ -28,12 +27,10 @@ class CNN(nn.Module):
         return nn.sigmoid(x)
 
 
-if __name__ == '__main__':
-
-    weights = pickle.load(open('./data/weights.pkl', 'rb'))
+if __name__ == "__main__":
+    weights = pickle.load(open("./data/weights.pkl", "rb"))
     net = CNN()
     neuron = 6
 
     ## TODO: Find an approximation of the input that maximizes a
     # specific output neuron.
-
