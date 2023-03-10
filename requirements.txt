@@ -1,0 +1,4 @@
+nox
+numpy
+matplotlib
+jax[cpu]
