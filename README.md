@@ -1,6 +1,6 @@
 # Exercise: Interpretable machine learning in python
 
-# Task 1: Input optimization.
+### Task 1: Input optimization.
 Open the `src/input_opt.py` file. The network `./data/weights`.pkl` contains network weights pre-trained on MNIST. Turn the network optimization problem around, and find an input that makes a particular output neuron extremely happy. In other words maximize,
 
 $$ \max_\mathbf{x} y_i = f(\mathbf{x}, \theta) .$$
@@ -9,7 +9,7 @@ Use `jax.value_and_grad` to find the gradients of the network input $\mathbf{x}$
 Start with a `jax.random.uniform` network input of shape `[1, 28, 28, 1]` and 
 iteratively optimize it.
 
-# Task 2: Integrated Gradients (Optional):
+### Task 2: Integrated Gradients (Optional):
 
 
 Reuse your MNIST digit recognition code. Implement IG as discussed in the lecture. Recall the equation
