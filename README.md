@@ -1,7 +1,7 @@
 # Exercise: Interpretable machine learning in python
 
 ### Task 1: Input optimization.
-Open the `src/input_opt.py` file. The network `./data/weights`.pkl` contains network weights pre-trained on MNIST. Turn the network optimization problem around, and find an input that makes a particular output neuron extremely happy. In other words maximize,
+Open the `src/input_opt.py` file. The network `./data/weights.pkl` contains network weights pre-trained on MNIST. Turn the network optimization problem around, and find an input that makes a particular output neuron extremely happy. In other words maximize,
 
 $$ \max_\mathbf{x} y_i = f(\mathbf{x}, \theta) .$$
 
