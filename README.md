@@ -1,7 +1,7 @@
 # Exercise: Interpretable machine learning in python
 
 # Task 1: Input optimization.
-Open the `src/input_opt.py` file. The network `./data/weights`.pkl` contains network weights pre-trained on MNIST. Turn the network optimization problem around, and find an input that makes a particular output neuron extremely happy. In other words maximize,
+Open the `src/input_opt.py` file. The network `./data/weights.pkl` contains network weights pre-trained on MNIST. Turn the network optimization problem around, and find an input that makes a particular output neuron extremely happy. In other words maximize,
 
 ```math
 \max_\mathbf{x} y_i = f(\mathbf{x}, \theta) .
@@ -26,7 +26,7 @@ Finally, m denotes the number of summation steps from the black baseline image t
 
 Follow the TODOs in `./src/mnist_integrated.py` and then run `scripts/integrated_gradients.slurm`.
 
-## Task 3 - Deepfake detection (Optional):
+# Task 3 - Deepfake detection (Optional):
 In this exercise we will consider 128 by 128-pixel fake images from [StyleGAN](https://github.com/NVlabs/stylegan) and pictures of real people from the  [Flickr-Faces-HQ](https://github.com/NVlabs/ffhq-dataset) dataset.
 
 Flickr-Faces-HQ images depict real people, such as the person below:
@@ -57,9 +57,11 @@ Code to load the data is already present in the `deepfake_interpretation.py` fil
 
 Compute log-scaled frequency domain representations of samples from both sources via
 
-$$ \mathbf{F}_I =  \log_e (| \mathcal{F}_{2d}(\mathbf(I)) | + \epsilon ), \text{ with } \mathbf{I} \in \mathbb{R}^{h,w,c}, \epsilon \approx 0 .$$
+```math
+\mathbf{F}_I =  \log_e (| \mathcal{F}_{2d}(\mathbf(I)) | + \epsilon ), \text{ with } \mathbf{I} \in \mathbb{R}^{h,w,c}, \epsilon \approx 0
+```
 
-Above `h`, `w` and `c` denote image height, width and columns. `Log` denotes the natural logarithm, and bars denote the absolute value. A small epsilon is added for numerical stability.
+Above $h$, $w$ and $c$ denote image height, width and columns. $log$ denotes the natural logarithm, and bars denote the absolute value. A small epsilon is added for numerical stability.
 
 Use the numpy functions `jnp.log`, `jnp.abs`, `jnp.fft.fft2`. By default, `fft2` transforms the last two axes. The last axis contains the color channels in this case. We are looking to transform the rows and columns.
 
