@@ -6,8 +6,10 @@ Open the `src/input_opt.py` file. The network `./data/weights`.pkl` contains net
 $$ \max_\mathbf{x} y_i = f(\mathbf{x}, \theta) .$$
 
 Use `jax.value_and_grad` to find the gradients of the network input $\mathbf{x}$.
-Start with a `jax.random.uniform` network input of shape `[1, 28, 28, 1]` and 
+Start with a `jnp.ones` network input of shape `[1, 28, 28, 1]` and 
 iteratively optimize it.
+Normalize by subtracting the mean and deviding by the standard
+deviation at every step.
 
 ### Task 2: Integrated Gradients (Optional):
 
