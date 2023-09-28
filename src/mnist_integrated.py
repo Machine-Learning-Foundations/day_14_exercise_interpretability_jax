@@ -16,6 +16,7 @@ from input_opt import CNN
 
 def get_mnist_test_data() -> Tuple[np.ndarray, np.ndarray]:
     """Return the mnist test data set in numpy arrays.
+
     Returns:
         (array, array): A touple containing the test
         images and labels.
@@ -36,6 +37,7 @@ def get_mnist_test_data() -> Tuple[np.ndarray, np.ndarray]:
 
 def get_mnist_train_data() -> Tuple[np.ndarray, np.ndarray]:
     """Load the mnist training data set.
+
     Returns:
         (array, array): A touple containing the training
         images and labels.
@@ -59,14 +61,17 @@ def normalize(
     data: np.ndarray, mean: Optional[float] = None, std: Optional[float] = None
 ) -> Tuple[np.ndarray, float, float]:
     """Normalize the input array.
+
     After normalization the input
     distribution should be approximately standard normal.
+
     Args:
         data (np.array): The input array.
         mean (float): Data mean, re-computed if None.
             Defaults to None.
         std (float): Data standard deviation,
             re-computed if None. Defaults to None.
+
     Returns:
         np.array, float, float: Normalized data, mean and std.
     """
@@ -80,9 +85,11 @@ def normalize(
 @jax.jit
 def cross_entropy(label: jnp.ndarray, out: jnp.ndarray) -> jnp.ndarray:
     """Compute the cross entropy of one-hot encoded labels and the network output.
+
     Args:
         label (jnp.ndarray): The image labels of shape [batch_size, 10].
         out (jnp.ndarray): The network output of shape [batch_size, 10].
+
     Returns:
         jnp.ndarray, The loss scalar.
     """
@@ -120,6 +127,7 @@ def get_acc(img_data, label_data):
 
 
 def integrate_gradients(net, weights, test_images, output_digit, steps_m=300):
+    """Calculate integrated gradients."""
     g_list = []
     for test_image_x in tqdm(test_images, desc="Integrating Gradients"):
         pass
@@ -213,10 +221,10 @@ if __name__ == "__main__":
         )
         print("IG for digit 1")
         plt.imshow(ig_0)
-        plt.show()
+        plt.savefig("integrated_gradients_0.jpg")
         ig_1 = integrate_gradients(
             cnn, weights, img_data_test[:500], output_digit=1, steps_m=300
         )
         plt.imshow(ig_1)
-        plt.show()
+        plt.savefig("integrated_gradients_1.jpg")
         print("stop")

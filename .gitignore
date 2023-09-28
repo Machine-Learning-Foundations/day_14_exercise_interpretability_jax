@@ -1,4 +1,6 @@
 ffhq_style_gan/
+ffhq_style_gan.zip
+
 .vscode/
 .pytest_cache/
 
@@ -162,3 +164,11 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+classifier_weights.jpg
+input_opt.jpg
+mean_freq_difference.jpg
+real_fake_mean-log_fft2.jpg
+row_average_shifted_mean-log_fft2.jpg
+integrated_gradients_*.jpg
+out/

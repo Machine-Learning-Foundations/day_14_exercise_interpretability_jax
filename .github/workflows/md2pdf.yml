@@ -1,0 +1,19 @@
+name: Convert README to PDF
+
+on: [push]
+
+jobs:
+  convert_via_pandoc:
+    name: Convert via Pandoc
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v2
+      - run: mkdir output
+      - uses: maxheld83/pandoc@v2
+        with:
+          args: "--pdf-engine=xelatex --output=output/README.pdf README.md"
+      - uses: actions/upload-artifact@main
+        with:
+          name: readme
+          path: output
+            
