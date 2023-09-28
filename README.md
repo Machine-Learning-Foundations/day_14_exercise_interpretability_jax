@@ -8,15 +8,10 @@ Open the `src/input_opt.py` file. The network `./data/weights.pkl` contains netw
 ```
 
 Use `jax.value_and_grad` to find the gradients of the network input $\mathbf{x}$.
-<<<<<<< HEAD
 Start with a `jnp.ones` network input of shape `[1, 28, 28, 1]` and 
 iteratively optimize it.
 Normalize by subtracting the mean and deviding by the standard
 deviation at every step.  Execute your script with `python src/input_opt.py`
-=======
-Start with a `jax.random.uniform` network input of shape `[1, 28, 28, 1]` and 
-iteratively optimize it. Execute your script with `python src/input_opt.py`.
->>>>>>> 2157cddf5d2f66a7faa734f0c1130d5fd25fb45b
 
 # Task 2 Integrated Gradients (Optional):
 
